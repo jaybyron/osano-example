@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Script from "next/script";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +12,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <head>
+        <title>Create Next App</title>
+      </head>
+      <body className={inter.className}>
+        {children}
+        <Script
+            strategy="beforeInteractive"
+            src="https://cmp.osano.com/16BZC3Rmfl2gO1igF/dfe74e8b-9ddb-47d4-80e7-def0d9ecadd5/osano.js"
+          />
+      </body>
     </html>
   )
 }
